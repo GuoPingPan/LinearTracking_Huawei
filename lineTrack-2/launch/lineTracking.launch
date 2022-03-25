@@ -1,0 +1,28 @@
+<launch>
+
+	<--include file="$(find linetracking)/launch/cameraTracking.launch"/-->
+
+	<--include file="$(find linetracking)/launch/laserTracking.launch"/-->
+
+
+    <node name="laserTracking" pkg="rplidar_ros" type="laserTracking" output="screen">
+        <param name="offset" type="float" value="0.45"/>
+        <param name="disThres" type="float" value="0.55"/>
+        <param name="thetaX" type="float" value="0.2"/>
+        <param name="thetaY" type="float" value="0.1"/>
+        <param name="sizeThres" type="float" value="10"/>
+    </node>
+    
+	<node name="linktracking" pkg="linetracking" type="line_tracking_node" output="screen">
+		<param name="video" type="string" value="video"/>
+		<param name="vertical_thres" value="0.5"/>
+		<param name="parallel_thres" value="2.0/3"/>
+		<param name="scale"  value="1000.0"/>
+		<param name="thetaX" value="0.1"/>
+		<param name="thetaY" value="0.1"/>
+		<param name="offset" value="0.45"/>
+		<param name="parallel_bias" type="int" value="20"/>
+	</node>
+
+
+</launch>

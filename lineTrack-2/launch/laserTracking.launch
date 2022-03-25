@@ -1,0 +1,12 @@
+<launch>
+
+    <node name="laserTracking" pkg="rplidar_ros" type="laserTrackingTest" output="screen">
+        <param name="offset" value="0.45"/>
+        <param name="disThres" value="0.55"/>
+        <param name="thetaX" value="0.2"/>
+        <param name="thetaY" value="0.1"/>
+        <param name="sizeThres" value="10"/>
+    </node>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find linetracking)/rviz/test.rviz" />
+
+</launch>
