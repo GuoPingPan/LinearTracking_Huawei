@@ -1,0 +1,21 @@
+<launch>
+
+	<node name="cameraTracking" pkg="linetracking" type="cameraTest" output="screen">
+		<param name="video" value="/home/pgp/lineTracking_ros/src/linetracking/dataset/new_output5.avi"/>
+		<param name="vertical_thres" value="0.5"/>
+		<param name="parallel_thres" value="2.0/3"/>	
+		<param name="scale"  value="1000.0"/>
+		<param name="thetaX" value="0.1"/>
+		<param name="thetaY" value="0.1"/>
+		<param name="offset" value="0.45"/>
+		<param name="parallel_bias" type="int" value="20"/>
+		<param name="imgWidth" value="1280"/>
+		<param name="imgHeight" value="720"/>
+		<param name="up_rate" value="0.7"/>
+		<param name="down_rate" value="0.9"/>
+		<param name="size_thres" value="50"/>
+	</node>
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find linetracking)/rviz/camera.rviz"/>
+
+</launch>
